@@ -19,3 +19,24 @@ data/
 frontend/node_modules/
 frontend/dist/
 frontend/.vite/
+
+###to run backend without using uv(which is used by karpathy)use this command
+
+
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -U pip
+pip install "fastapi>=0.115.0" "uvicorn[standard]>=0.32.0" "python-dotenv>=1.0.0" "httpx>=0.27.0" "pydantic>=2.9.0"
+
+
+
+###START BACKEND
+
+python -m uvicorn backend.main:app --host 127.0.0.1 --port 8001 --reload
+
+
+###IN SECOND TERMINAL TO RUN FRONTEND
+
+cd frontend
+npm install
+npm run dev
